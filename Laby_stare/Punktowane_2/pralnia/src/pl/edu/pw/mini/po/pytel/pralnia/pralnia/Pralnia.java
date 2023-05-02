@@ -11,11 +11,17 @@ import pl.edu.pw.mini.po.pytel.pralnia.pocketitems.Granat;
 import pl.edu.pw.mini.po.pytel.pralnia.pocketitems.PocketItems;
 import pl.edu.pw.mini.po.pytel.pralnia.ubrania.Ubrania;
 
-public class Pralnia implements PodmiotPioracy {
+public class Pralnia<T> implements PodmiotPioracy {
 
+	protected T certyfikat;
 	protected Set<Ubrania> ubraniaPrzyjeteDoPrania = new HashSet<>(); // Kolejność wstawiania nie istotna, bez powtórzeń
 	protected Set<Ubrania> ubraniaWyprane = new LinkedHashSet<>(); // Kolejność wstawiania istotna, brak powtórzeń
 	protected Map<Ubrania, Set<PocketItems>> elementyZKieszeni = new HashMap<>(); // Relacja klucz-wartość
+
+	public Pralnia(T certyfikat) {
+
+		this.certyfikat = certyfikat;
+	}
 
 	@Override
 	public void putToWash(Ubrania ubrania) {
@@ -65,4 +71,7 @@ public class Pralnia implements PodmiotPioracy {
 		return result;
 	}
 
+	public T retrieveCetrificate() {
+		return certyfikat;
+	}
 }

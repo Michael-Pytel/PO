@@ -5,5 +5,5 @@
  * @author admin
  *
  */
-module pralnia {
+module pralnia1 {
 }
