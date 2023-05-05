@@ -11,17 +11,17 @@ import pl.edu.pw.mini.po.pytel.taks2samolot.inzynierowie.HumanistycznyInzynierZa
 import pl.edu.pw.mini.po.pytel.taks2samolot.inzynierowie.InzynierZaladunku;
 import pl.edu.pw.mini.po.pytel.taks2samolot.samolot.Samolot;
 
-public class Terminal implements TerminalInterface {
+public class Terminal<T> implements TerminalInterface {
 	private SortedSet<Bagaz> bagaze = new TreeSet<>();
 	private Set<Pasazer> pasazerowie = new LinkedHashSet<>();
-	private Samolot samolot;
-	private InzynierZaladunku inzZal;
-	private HumanistycznyInzynierZaladunku humInzZal;
+	private Samolot<T> samolot;
+	private InzynierZaladunku<T> inzZal;
+	private HumanistycznyInzynierZaladunku<T> humInzZal;
 
-	public Terminal(Samolot samolot) {
+	public Terminal(Samolot<T> samolot) {
 		this.samolot = samolot;
-		this.inzZal = new InzynierZaladunku(bagaze, samolot);
-		this.humInzZal = new HumanistycznyInzynierZaladunku(bagaze, samolot, pasazerowie, samolot);
+		this.inzZal = new InzynierZaladunku<T>(bagaze, samolot);
+		this.humInzZal = new HumanistycznyInzynierZaladunku<T>(bagaze, samolot, pasazerowie, samolot);
 	}
 	@Override
 	public void addBagaz(Bagaz bagaz) {

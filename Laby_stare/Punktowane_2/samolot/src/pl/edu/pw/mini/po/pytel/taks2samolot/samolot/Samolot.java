@@ -12,7 +12,7 @@ import pl.edu.pw.mini.po.pytel.taks2samolot.czlowiek.Pasazer;
 import pl.edu.pw.mini.po.pytel.taks2samolot.czlowiek.Pilot;
 import pl.edu.pw.mini.po.pytel.taks2samolot.czlowiek.Steward;
 
-public class Samolot implements PasazerInterface {
+public class Samolot<T> implements PasazerInterface {
 
 	static Random random = new Random();
 	protected Pilot pilot1;
@@ -24,9 +24,10 @@ public class Samolot implements PasazerInterface {
 	protected List<Steward> miejscaStewardow = new LinkedList<>();
 	protected Stack<Bagaz> luk = new Stack<>();
 
-	// protected T obiektPrzymusuBezposredniego;
+	protected T obiektPrzymusuBezposredniego;
 
-	public Samolot() {
+	public Samolot(T obiektPrzymusuBezposredniego) {
+		this.obiektPrzymusuBezposredniego = obiektPrzymusuBezposredniego;
 		pilot1 = new Pilot();
 		pilot2 = new Pilot();
 		// this.obiektPrzymusuBezposredniego = obiektPrzymusuBezposredniego;

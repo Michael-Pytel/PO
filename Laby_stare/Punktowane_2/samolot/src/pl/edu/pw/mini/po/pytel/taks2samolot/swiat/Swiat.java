@@ -10,8 +10,8 @@ import pl.edu.pw.mini.po.pytel.taks2samolot.terminal.Terminal;
 public class Swiat {
 	public void go() {
 		Gazrurka gazrurka = new Gazrurka();
-		Samolot samolot = new Samolot();
-		Terminal terminal = new Terminal(samolot);
+		Samolot<Gazrurka> samolot = new Samolot<>(gazrurka);
+		Terminal<Gazrurka> terminal = new Terminal<>(samolot);
 
 		for (int i = 0; i < 120; i++) {
 			if (i < 50) {
